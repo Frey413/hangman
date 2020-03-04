@@ -1,5 +1,5 @@
 import {words} from "./words";
-import inquirer from "inquirer";
+//import inquirer from "inquirer";
 
 const word: string = words[Math.floor(Math.random()*words.length)];
 
@@ -10,3 +10,4 @@ for (let i = 0;i < word.length;i++){
 }
 
 console.log(stuff);
+console.log(word);
