@@ -1,5 +1,7 @@
 import {words} from "./words";
 import * as Inquirer from "inquirer";
+import * as chalk from "chalk"
+import * as figlet from "figlet";
 
 const word: string = words[Math.floor(Math.random()*words.length)];
 const parts = word.split("");
@@ -8,17 +10,19 @@ let correct = [""];
 let incorrect = [];
 let win: boolean = false;
 
+console.log(chalk.blue(figlet.textSync("Hangman!")))
 main();
 
 async function main() {
+
     printCurrentState();
     if (win) {
-        console.log("You win!");
+        console.log(chalk.green("You win!"));
     }else if (incorrect.length > 4) {
-        console.log("You lost! Too many wrong guesses.");
+        console.log(chalk.red("You lost! Too many wrong guesses."));
         console.log("The word was:" + word)
     }else {
-        letter = await askForLetter();
+        letter = (await askForLetter()).toLowerCase();
         checkGuess();
         main();
     }

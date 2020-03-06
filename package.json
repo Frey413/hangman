@@ -23,6 +23,7 @@
   "homepage": "https://github.com/Frey413/hangman#readme",
   "dependencies": {
     "chalk": "^3.0.0",
+    "figlet": "^1.3.0",
     "inquirer": "^7.0.4"
   },
   "devDependencies": {
