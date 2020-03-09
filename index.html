@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hangman</title>
+    <style>
+        #word {
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hangman</h1>
+    <p>Enjoy playing the fun game!</p>
+    <span id="word">this program requires javascript to run</span>
+    <input type="text">
+    <script>
+        document.getElementById("word").innerHTML = "test";
+        const words = ["ant", "baboon", "badger", "bat", "bear", "beaver", "camel", "cat", "clam", "cobra", "cougar", "coyote", "crow", "deer", "dog", "donkey", "duck", "eagle", "ferret", "fox", "frog", "goat", "goose", "hawk", "lion", "lizard", "llama", "mole", "monkey", "moose", "mouse", "mule", "newt", "otter", "owl", "panda", "parrot", "pigeon", "python", "rabbit", "ram", "rat", "raven", "rhino", "salmon", "seal", "shark", "sheep", "skunk", "sloth", "snake", "spider", "stork", "swan", "tiger", "toad", "trout", "turkey", "turtle", "weasel", "whale", "wolf", "wombat", "zebra"]
+        const word = words[Math.floor(Math.random() * words.length)];
+        const parts = word.split("");
+        let letter;
+        let correct = [""];
+        let incorrect = [];
+        let win = false;
+        /*
+        main();
+
+        async function main() {
+
+            printCurrentState();
+            if (win) {
+                console.log(chalk.green("You win!"));
+            } else if (incorrect.length > 4) {
+                console.log(chalk.red("You lost! Too many wrong guesses."));
+                console.log("The word was:" + word)
+            } else {
+                letter = (await askForLetter()).toLowerCase();
+                checkGuess();
+                main();
+            }
+        }
+
+        function printCurrentState() {
+
+            let stuff = "";
+            for (let i = 0; i < parts.length; i++) {
+                for (let n = 0; n < correct.length; n++) {
+                    if (parts[i] == correct[n]) {
+                        stuff += correct[n] + " ";
+                        break;
+                    } else if (n == correct.length - 1) {
+                        stuff += "_ ";
+                    }
+                }
+            }
+            console.log(stuff);
+            console.log("Wrong guesses: " + incorrect);
+
+            let splitStuff = stuff.split("");
+            for (let i = 0; i < splitStuff.length; i++) {
+                if (splitStuff[i] == "_") {
+                    break;
+                } else if (i == splitStuff.length - 1) {
+                    win = true;
+                }
+            }
+
+        }
+
+        async function askForLetter() {
+            const answer = await Inquirer.prompt([{ message: "Guess a letter", type: "input", name: "letter" }]);
+            return answer.letter;
+        }
+
+        function checkGuess() {
+            for (let i = 0; i < parts.length; i++) {
+                if (letter == parts[i]) {
+                    correct.push(letter);
+                    break;
+                } else if (parts.length - 1 == i) {
+                    incorrect.push(letter);
+                }
+            }
+        }*/
+    </script>
+</body>
+
+</html>
