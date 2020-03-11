@@ -8,6 +8,16 @@
     <style>
         #word {
             font-size: 2rem;
+            color: purple
+        }
+        #input {
+            color: green
+        }
+        #status {
+            color: red
+        }
+        #gameOver {
+            color: blue
         }
     </style>
 </head>
@@ -16,7 +26,9 @@
     <h1>Hangman</h1>
     <p>Enjoy playing the fun game!</p>
     <span id="word">this program requires javascript to run</span>
-    <input type="text">
+    <input type="text" id="input">
+    <p id="status"></p>
+    <f id="gameOver"></f>
     <script>
         document.getElementById("word").innerHTML = "test";
         const words = ["ant", "baboon", "badger", "bat", "bear", "beaver", "camel", "cat", "clam", "cobra", "cougar", "coyote", "crow", "deer", "dog", "donkey", "duck", "eagle", "ferret", "fox", "frog", "goat", "goose", "hawk", "lion", "lizard", "llama", "mole", "monkey", "moose", "mouse", "mule", "newt", "otter", "owl", "panda", "parrot", "pigeon", "python", "rabbit", "ram", "rat", "raven", "rhino", "salmon", "seal", "shark", "sheep", "skunk", "sloth", "snake", "spider", "stork", "swan", "tiger", "toad", "trout", "turkey", "turtle", "weasel", "whale", "wolf", "wombat", "zebra"]
@@ -26,21 +38,29 @@
         let correct = [""];
         let incorrect = [];
         let win = false;
-        /*
+        document.getElementById("input").addEventListener("keyup", function () {
+            main()
+        })
+        
+        document.getElementById("gameOver").innerHTML = ""
         main();
 
         async function main() {
 
+            if (!win) {
+                letter = document.getElementById("input").value;
+                document.getElementById("input").value = ""
+                if (letter) {
+                    checkGuess();
+                }
+            }
             printCurrentState();
+
             if (win) {
-                console.log(chalk.green("You win!"));
+                document.getElementById("gameOver").innerHTML = "You win!";
             } else if (incorrect.length > 4) {
-                console.log(chalk.red("You lost! Too many wrong guesses."));
-                console.log("The word was:" + word)
-            } else {
-                letter = (await askForLetter()).toLowerCase();
-                checkGuess();
-                main();
+                document.getElementById("gameOver").innerHTML = "You lost! Too many wrong guesses. The word was: " + word;
+                win = true
             }
         }
 
@@ -57,8 +77,8 @@
                     }
                 }
             }
-            console.log(stuff);
-            console.log("Wrong guesses: " + incorrect);
+            document.getElementById("word").innerHTML = stuff;
+            document.getElementById("status").innerHTML = "Wrong guesses: " + incorrect;
 
             let splitStuff = stuff.split("");
             for (let i = 0; i < splitStuff.length; i++) {
@@ -71,11 +91,6 @@
 
         }
 
-        async function askForLetter() {
-            const answer = await Inquirer.prompt([{ message: "Guess a letter", type: "input", name: "letter" }]);
-            return answer.letter;
-        }
-
         function checkGuess() {
             for (let i = 0; i < parts.length; i++) {
                 if (letter == parts[i]) {
@@ -85,7 +100,7 @@
                     incorrect.push(letter);
                 }
             }
-        }*/
+        }
     </script>
 </body>
 
