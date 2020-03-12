@@ -56,15 +56,13 @@
                 }
             }
             printCurrentState();
-            }
-            if (!end) {
-                if (win) {
+            
+            if (win) {
                 document.getElementById("gameOver").innerHTML = "You win!";
                 end = true;
-                } else if (incorrect.length > 4) {
+            } else if (incorrect.length > 4) {
                 document.getElementById("gameOver").innerHTML = "You lost! Too many wrong guesses. The word was: " + word;
                 end = true;
-                }
             }
         }
 
