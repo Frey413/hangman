@@ -38,6 +38,7 @@
         let correct = [""];
         let incorrect = [];
         let win = false;
+        let end = false;
         document.getElementById("input").addEventListener("keyup", function () {
             main()
         })
@@ -47,7 +48,7 @@
 
         async function main() {
 
-            if (!win) {
+            if (!end) {
                 letter = document.getElementById("input").value;
                 document.getElementById("input").value = ""
                 if (letter) {
@@ -60,7 +61,7 @@
                 document.getElementById("gameOver").innerHTML = "You win!";
             } else if (incorrect.length > 4) {
                 document.getElementById("gameOver").innerHTML = "You lost! Too many wrong guesses. The word was: " + word;
-                win = true
+                end = true
             }
         }
 
