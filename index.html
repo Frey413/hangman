@@ -24,12 +24,14 @@
 </head>
 
 <body>
-    <h1>Hangman</h1>
-    <p>Enjoy playing the fun game!</p>
-    <span id="word">this program requires javascript to run</span>
-    <input type="text" id="input">
-    <p id="status"></p>
-    <f id="gameOver"></f>
+    <div class="container">
+        <h1>Hangman</h1>
+        <p>Enjoy playing the fun game!</p>
+        <span id="word">this program requires javascript to run</span>
+        <input type="text" id="input">
+        <p id="status"></p>
+        <p id="gameOver"></p>
+    </div>
     <script>
         document.getElementById("word").innerHTML = "test";
         const words = ["ant", "baboon", "badger", "bat", "bear", "beaver", "camel", "cat", "clam", "cobra", "cougar", "coyote", "crow", "deer", "dog", "donkey", "duck", "eagle", "ferret", "fox", "frog", "goat", "goose", "hawk", "lion", "lizard", "llama", "mole", "monkey", "moose", "mouse", "mule", "newt", "otter", "owl", "panda", "parrot", "pigeon", "python", "rabbit", "ram", "rat", "raven", "rhino", "salmon", "seal", "shark", "sheep", "skunk", "sloth", "snake", "spider", "stork", "swan", "tiger", "toad", "trout", "turkey", "turtle", "weasel", "whale", "wolf", "wombat", "zebra"]
